@@ -1,6 +1,4 @@
-/* ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
-Database Load Issues (follow if receiving permission denied when running SQL code below)
-
+/*
 Possible Errors: 
 - ERROR >>  duplicate key value violates unique constraint "company_dim_pkey"
 - ERROR >> could not open file "C:\Users\...\company_dim.csv" for reading: Permission denied
@@ -27,20 +25,3 @@ Possible Errors:
 \copy skills_job_dim FROM '/home/karan/sql_project/csv_files/skills_job_dim.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
 
 */
-
--- NOTE: This has been updated from the video to fix issues with encoding
-COPY company_dim
-FROM '/home/karan/sql_project/csv_files/company_dim.csv'
-WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
-
-COPY skills_dim
-FROM '/home/karan/sql_project/csv_files/skills_dim.csv'
-WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
-
-COPY job_postings_fact
-FROM '/home/karan/sql_project/csv_files/job_postings_fact.csv'
-WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
-
-COPY skills_job_dim
-FROM '/home/karan/sql_project/csv_files/skills_job_dim.csv'
-WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
