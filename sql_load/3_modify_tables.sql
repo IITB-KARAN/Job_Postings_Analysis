@@ -16,12 +16,12 @@ Possible Errors:
             1. Find path by right-clicking a CSV file in VS Code and selecting “Copy Path”
 7. Paste the following into `PSQL Tool`, (with the CORRECT file path)
 
-\copy company_dim FROM '/home/karan/sql_project/csv_files/company_dim.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
+\copy company_dim FROM 'C:\Study_material\Files\Job_Postings_files\company_dim.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
 
-\copy skills_dim FROM '/home/karan/sql_project/csv_files/skills_dim.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
+\copy skills_dim FROM 'C:\Study_material\Files\Job_Postings_files\skills_dim.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
 
-\copy job_postings_fact FROM '/home/karan/sql_project/csv_files/job_postings_fact.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
+\copy job_postings_fact FROM 'C:\Study_material\Files\Job_Postings_files\job_postings_fact.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
 
-\copy skills_job_dim FROM '/home/karan/sql_project/csv_files/skills_job_dim.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
+\copy skills_job_dim FROM 'C:\Study_material\Files\Job_Postings_files\skills_job_dim.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
 
 */
