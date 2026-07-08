@@ -4,7 +4,9 @@
 
 This project explores the 2023 data analyst job market using SQL to uncover salary trends, identify the most in-demand skills, and determine which technical skills offer the highest earning potential. The analysis is based on real-world job posting data and provides practical insights for aspiring data analysts looking to make informed career decisions.
 
-> **SQL Queries:** All queries used throughout this project are available in the `/1_SQL_Analysis/SQL_Queries` directory.
+**SQL Queries:**All queries used throughout this project are available in here [Queries](/Job_Postings_Analysis/1_SQL_Analysis/SQL_Queries)
+
+
 
 ---
 
@@ -41,22 +43,23 @@ The first analysis identifies the highest-paying remote data analyst positions b
 
 ```sql
 SELECT
-    job_id,
-    job_title,
-    job_location,
-    job_schedule_type,
-    salary_year_avg,
-    job_posted_date,
-    name AS company_name
-FROM job_postings_fact
-LEFT JOIN company_dim
-    ON job_postings_fact.company_id = company_dim.company_id
+         job_id,
+         job_title,
+         job_location,
+         job_schedule_type,
+         salary_year_avg,
+         job_posted_date,
+         name AS company_name
+FROM 
+        job_postings_fact
+LEFT JOIN company_dim ON job_postings_fact.company_id = company_dim.company_id        
 WHERE
-    job_title_short = 'Data Analyst'
-    AND job_location = 'Anywhere'
-    AND salary_year_avg IS NOT NULL
-ORDER BY salary_year_avg DESC
-LIMIT 10;
+        job_title_short = 'Data Analyst' AND 
+        job_location = 'Anywhere' AND
+        salary_year_avg IS NOT NULL
+ORDER BY 
+        salary_year_avg  DESC
+LIMIT 10;  
 ```
 
 ### Key Findings
@@ -74,32 +77,24 @@ LIMIT 10;
 This analysis identifies the technical skills associated with the highest-paying data analyst positions by combining job postings with their required skills.
 
 ```sql
-WITH top_paying_jobs AS (
-    SELECT
-        job_id,
-        job_title,
-        salary_year_avg,
-        name AS company_name
-    FROM job_postings_fact
-    LEFT JOIN company_dim
-        ON job_postings_fact.company_id = company_dim.company_id
-    WHERE
-        job_title_short = 'Data Analyst'
-        AND job_location = 'Anywhere'
-        AND salary_year_avg IS NOT NULL
-    ORDER BY salary_year_avg DESC
-    LIMIT 10
-)
-
 SELECT
-    top_paying_jobs.*,
-    skills
-FROM top_paying_jobs
-INNER JOIN skills_job_dim
-    ON top_paying_jobs.job_id = skills_job_dim.job_id
-INNER JOIN skills_dim
-    ON skills_job_dim.skill_id = skills_dim.skill_id
-ORDER BY salary_year_avg DESC;
+         job_id,
+         job_title,
+         job_location,
+         job_schedule_type,
+         salary_year_avg,
+         job_posted_date,
+         name AS company_name
+FROM 
+        job_postings_fact
+LEFT JOIN company_dim ON job_postings_fact.company_id = company_dim.company_id        
+WHERE
+        job_title_short = 'Data Analyst' AND 
+        job_location = 'Anywhere' AND
+        salary_year_avg IS NOT NULL
+ORDER BY 
+        salary_year_avg  DESC
+LIMIT 10;  
 ```
 
 ### Key Findings
@@ -118,19 +113,19 @@ The following query determines which technical skills appear most frequently acr
 
 ```sql
 SELECT
-    skills,
-    COUNT(skills_job_dim.job_id) AS demand_count
+       skills_dim.skills,
+       COUNT(skills_job_dim.job_id ) AS demand_count 
 FROM job_postings_fact
-INNER JOIN skills_job_dim
-    ON job_postings_fact.job_id = skills_job_dim.job_id
-INNER JOIN skills_dim
-    ON skills_job_dim.skill_id = skills_dim.skill_id
-WHERE
-    job_title_short = 'Data Analyst'
-    AND job_work_from_home = TRUE
-GROUP BY skills
-ORDER BY demand_count DESC
-LIMIT 5;
+INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
+INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+WHERE 
+        job_title_short = 'Data Analyst' AND 
+        job_location = 'Anywhere'
+GROUP BY
+        skills_dim.skills
+ORDER BY
+        demand_count DESC
+LIMIT 5;                    
 ```
 
 ### Most Requested Skills
@@ -157,20 +152,20 @@ LIMIT 5;
 This analysis examines the average salary associated with individual technical skills.
 
 ```sql
-SELECT
+SELECT 
     skills,
-    ROUND(AVG(salary_year_avg),0) AS avg_salary
+    ROUND(AVG(salary_year_avg), 0) as avg_salary
 FROM job_postings_fact
-INNER JOIN skills_job_dim
-    ON job_postings_fact.job_id = skills_job_dim.job_id
-INNER JOIN skills_dim
-    ON skills_job_dim.skill_id = skills_dim.skill_id
-WHERE
-    job_title_short = 'Data Analyst'
-    AND salary_year_avg IS NOT NULL
-    AND job_work_from_home = TRUE
-GROUP BY skills
-ORDER BY avg_salary DESC
+
+INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
+INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+WHERE 
+    job_title_short = 'Data Analyst' AND
+    salary_year_avg IS NOT NULL
+GROUP BY 
+    skills
+ORDER BY
+    avg_salary DESC
 LIMIT 25;
 ```
 
@@ -202,24 +197,28 @@ LIMIT 25;
 This query combines salary and demand data to identify skills that offer the strongest return on investment for aspiring data analysts.
 
 ```sql
+
 SELECT
-    skills_dim.skill_id,
+     skills_dim.skill_id,
     skills_dim.skills,
     COUNT(skills_job_dim.job_id) AS demand_count,
-    ROUND(AVG(job_postings_fact.salary_year_avg),0) AS avg_salary
+    ROUND(AVG(job_postings_fact.salary_year_avg),0) AS avg_salary 
 FROM job_postings_fact
-INNER JOIN skills_job_dim
-    ON job_postings_fact.job_id = skills_job_dim.job_id
-INNER JOIN skills_dim
-    ON skills_job_dim.skill_id = skills_dim.skill_id
-WHERE
-    job_title_short = 'Data Analyst'
-    AND salary_year_avg IS NOT NULL
-    AND job_work_from_home = TRUE
-GROUP BY skills_dim.skill_id
-HAVING COUNT(skills_job_dim.job_id) > 10
-ORDER BY avg_salary DESC, demand_count DESC
-LIMIT 25;
+
+INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
+INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+WHERE 
+        job_title_short = 'Data Analyst' AND
+        salary_year_avg IS NOT NULL AND
+        job_work_from_home = TRUE
+GROUP BY 
+        skills_dim.skill_id
+HAVING
+    COUNT(skills_job_dim.job_id) >10
+ORDER BY
+        demand_count DESC,
+        avg_salary DESC
+LIMIT 25;   
 ```
 
 ### Top Skills
