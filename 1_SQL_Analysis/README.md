@@ -4,7 +4,7 @@
 
 This project explores the 2023 data analyst job market using SQL to uncover salary trends, identify the most in-demand skills, and determine which technical skills offer the highest earning potential. The analysis is based on real-world job posting data and provides practical insights for aspiring data analysts looking to make informed career decisions.
 
-> **SQL Queries:** All queries used throughout this project are available in the `/project_sql` directory.
+> **SQL Queries:** All queries used throughout this project are available in the `/1_SQL_Analysis/SQL_Queries` directory.
 
 ---
 
@@ -65,7 +65,7 @@ LIMIT 10;
 - Top-paying opportunities were offered by companies across multiple industries.
 - Senior-level and leadership positions consistently commanded the highest salaries.
 
-![Top Paying Roles](assets/1_top_paying_roles.png)
+![Top Paying Roles](images/1_top_paying_roles.png)
 
 ---
 
@@ -108,7 +108,7 @@ ORDER BY salary_year_avg DESC;
 - **Python** was the second most requested skill.
 - **Tableau**, **R**, **Snowflake**, **Excel**, and **Pandas** were also common requirements.
 
-![Top Paying Skills](assets/2_top_paying_roles_skills.png)
+![Top Paying Skills](images/2_top_paying_roles_skills.png)
 
 ---
 
