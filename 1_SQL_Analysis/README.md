@@ -4,7 +4,7 @@
 
 This project explores the 2023 data analyst job market using SQL to uncover salary trends, identify the most in-demand skills, and determine which technical skills offer the highest earning potential. The analysis is based on real-world job posting data and provides practical insights for aspiring data analysts looking to make informed career decisions.
 
-**SQL Queries:**All queries used throughout this project are available in here [Queries](/Job_Postings_Analysis/1_SQL_Analysis/SQL_Queries)
+**SQL Queries:**All queries used throughout this project are available in here [Queries](/1_SQL_Analysis/SQL_Queries)
 
 
 
