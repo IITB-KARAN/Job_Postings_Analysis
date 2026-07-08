@@ -24,7 +24,7 @@ Throughout these projects, I applied the following Excel skills:
 
 ## 📂 Data Jobs Dataset
 
-The projects use a real-world **2023 Data Jobs** dataset provided through my Excel course.
+The projects use a real-world **2023-2024 Data Jobs** dataset
 
 The dataset includes information on:
 
@@ -45,6 +45,7 @@ This interactive salary dashboard enables users to explore salary trends across 
 ![1_Salary_Dashboard.png](Images/1_Salary_Dashboard_Final_Dashboard.gif)
 
 ---
+
 
 ## Dashboard Features
 
