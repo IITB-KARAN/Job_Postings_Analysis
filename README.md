@@ -4,7 +4,7 @@ An end-to-end data analysis project examining the 2023–2024 data job market, e
  
 > **For a career in data, which skills are worth learning, and what do they pay?**
  
-## 💡 Project Overview
+##  Project Overview
  
 Career guidance in the data field is often generic and anecdotal. This project takes a data-driven approach instead, analyzing thousands of real job postings to determine:
  
@@ -14,7 +14,7 @@ Career guidance in the data field is often generic and anecdotal. This project t
 - How factors such as location and specialization influence compensation
 The project was carried out as a full analytical pipeline: sourcing and structuring the data, querying it with SQL, building dashboards in Excel, and delivering interactive reporting in Power BI. The same core dataset and questions were addressed through each tool to demonstrate consistent analytical reasoning applied across different environments.
  
-## 🧠 Key Findings
+##  Key Findings
  
 - **SQL is the most valuable skill in the dataset** — it ranks highest in both demand and its association with top-paying roles.
 - **The strongest combination is SQL, Python, and a visualization tool** (Tableau, Excel, or Power BI). This pairing recurs consistently across all three analyses.
@@ -22,7 +22,7 @@ The project was carried out as a full analytical pipeline: sourcing and structur
 - **Salary tends to increase with the number of required skills**, particularly for Senior Data Engineer and Data Scientist roles.
 - **Location remains a significant factor, even for remote positions.** Compensation varies meaningfully by country, and the highest-paying remote roles ($180K–$650K) are concentrated in senior and leadership positions.
 - **Excel remains highly relevant.** It is the second most in-demand skill after SQL, underscoring its continued importance in employer expectations.
-## 🗂️ Project Structure
+##  Project Structure
  
 | Stage | Tool | Description |
 |---|---|---|
@@ -32,6 +32,11 @@ The project was carried out as a full analytical pipeline: sourcing and structur
  
 Each stage of the pipeline includes its own README with the complete methodology — queries, dashboards, and tool-specific insights.
  
-## 🧰 Tools & Technologies
+## Tools & Technologies
  
-`PostgreSQL` · `SQL` · `VS Code` · `Microsoft Excel` (Power Query, Power Pivot, DAX) · `Power BI` · `Git & GitHub`
+- **PostgreSQL**
+ - **SQL**
+ - **VS Code**
+ - **Microsoft Excel (Power Query,Power Pivot, DAX)**
+- **Power BI**
+ - **Git & GitHub**

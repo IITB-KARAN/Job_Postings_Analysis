@@ -1,4 +1,4 @@
-# Data Jobs Dashboard w/ Power BI
+# Data Jobs Dashboard 
   <img src="images/Project1_Dashboard_Overview.gif" alt="Data Jobs Dashboard GIF">
 </a>
 
